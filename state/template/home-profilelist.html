@@ -1,0 +1,20 @@
+<div  class="row">
+    <div class="col-sm-6">
+        <ul>
+            <li ng-repeat="profilelists in profilelist.profile">
+                <!--<a ui-sref="profiledetails({id: profilelists.id})"> {{profilelists.email}} </a>-->
+                <button ng-click="clickToOpen(profilelists.id)">{{profilelists.email}}</button>
+             </li>
+        </ul>
+    </div>
+</div>
+
+<script type="text/ng-template" id="templateId">
+     <div id="target" ng-click="test()">
+         <span ng-bind="viewdtl.id"></span>
+        <span ng-bind="viewdtl.name"></span>
+        <span ng-bind="viewdtl.email"></span>
+        <span ng-bind="viewdtl.description"></span>
+
+    </div>
+</script>

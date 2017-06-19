@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>State App</title>
+    <!-- CSS (load bootstrap) -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <style>
+        .navbar { border-radius:0; }
+    </style>
+    <!--<base href="/">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
+    <script src="public/js/app.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://pixelcrafts.com/soo/lib/angular/ngDialog.min.js"></script>
+    <script src="public/js/bootstrap.min.js"></script>
+    <link href="http://pixelcrafts.com/soo/css/ngDialog.css" rel="stylesheet">
+    <link href="http://pixelcrafts.com/soo/css/ngDialog-theme-default.css" rel="stylesheet">
+    <link href="public/css/style.css" rel="stylesheet">
+
+</head>
+<body ng-app="routerApp">
+
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" ui-sref="home">ProfileBook</a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li><a ui-sref="home">Home</a></li>
+        <li><a ui-sref="list">List</a></li>
+        <li><a ui-sref="about">About</a></li>
+        <li class="profilelist" style="display: none"><a ui-sref="profilelist">Profile List</a></li>
+        <li class="signout" style="display: none"><a ng-click="signout()">Signout</a></li>
+        <li class="login1" style="display: block"><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
+        <li class="signup" style="display: block"><a href="#"  data-toggle="modal" data-target="#signup-modal">Signup</a></li>
+    </ul>
+</nav>
+<div  >
+    <!--<button ng-click="clickToOpen()">My Modal</button>-->
+    <!--<script type="text/ng-template" id="templateId">-->
+
+        <!--<div id="target" ng-click="test()">-->
+            <!--<input type="hidden" ng-model="viewprofile.id">-->
+            <!--<input type="text" ng-model="viewprofile.name">-->
+            <!--<input type="text" ng-model="viewprofile.email">-->
+            <!--<input type="text" ng-model="viewprofile.description">-->
+
+        <!--</div>-->
+    <!--</script>-->
+</div>
+<div class="container">
+    <div ui-view></div>
+</div>
+
+
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;"  data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+
+        <div class="loginmodal-container">
+            <div class="modal-header">
+                <h3 class="modal-title">User Login</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+            <form ng-submit="loginfnc()" ng-controller="loginController">
+                <input type="text" name="email" placeholder="Email" ng-model="email" required>
+                <input type="password" name="pass" placeholder="Password" ng-model="pass" required>
+                <input type="submit" class="login loginmodal-submit" value="Login">
+            </form>
+
+            <div class="login-help">
+                <a href="#">Register</a> - <a href="#">Forgot Password</a>
+                <span ng-bind="errormsg"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;"  data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+
+        <div class="loginmodal-container">
+            <div class="modal-header">
+                <h3 class="modal-title">User Signup</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+            <form ng-submit="signup()" ng-controller="signupController">
+                <input type="text" name="fullname" placeholder="Enter Name" ng-model="name" required>
+                <input type="text" name="email" placeholder="Email" ng-model="email" required>
+                <input type="password" name="pass" placeholder="Password" ng-model="pass" required>
+                <input type="submit" name="signup" class="login loginmodal-submit" value="Signup">
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
