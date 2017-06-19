@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login app</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js" type="text/javascript"></script>
+    <script src="http://pixelcrafts.com/soo/lib/angular/ngDialog.min.js" type="text/javascript"></script>
+    <link href="http://pixelcrafts.com/soo/css/ngDialog.css" rel="stylesheet">
+    <link href="http://pixelcrafts.com/soo/css/ngDialog-theme-default.css" rel="stylesheet">
+    <script src="public/js/app.js" type="text/javascript"></script>
+    <style>
+        li > a{cursor: pointer;}
+    </style>
+</head>
+<body ng-app="myapp">
+<div>
+    <ul>
+        <li><a ui-sref="home">Home</a></li>
+        <li><a ui-sref="profile">Profile</a></li>
+        <li><a ng-click="login()">Login</a></li>
+        <li><a ng-click="signup()">Signup</a></li>
+        <li><a ng-click="logout()">Logout</a></li>
+    </ul>
+</div>
+<div>
+    <script type="text/ng-template" id="loginid">
+    <div id="target1" ng-click="test()">
+       <form ng-submit="loginsubmit()" ng-controller="loginController">
+        <input type="text" ng-model="email" placeholder="Email"><br/>
+        <input type="password" ng-model="pass" placeholder="Password"><br/>
+        <input type="submit" value="Submit">
+       </form>
+    </div>
+</script>
+    <script type="text/ng-template" id="signup">
+    <div id="target" ng-click="test()">
+        <form>
+            <input type="text" ng-model="name">
+        </form>
+    </div>
+</script>
+
+<ui-view></ui-view>
+</div>
+</body>
+</html>
